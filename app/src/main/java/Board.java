@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class Board {
 
     //Contains 9 values which are the squares
@@ -34,6 +37,7 @@ public class Board {
     public String getB1() {
         return b1;
     }
+
     public void setB1(String b1) {
 
         this.b1 = b1;
@@ -72,9 +76,9 @@ public class Board {
 
     public void displayBoard() {
         System.out.println(" " + a1 + " | " + a2 + " | " + a3 + " \n" +
-                "---|---|---" +
+                "---|---|--- \n" +
                 " " + b1 + " | " + b2 + " | " + b3 + " \n" +
-                "---|---|---" +
+                "---|---|--- \n" +
                 " " + c1 + " | " + c2 + " | " + c3 + " ");
     }
     public void setBoard(String location, String value) {
@@ -89,7 +93,53 @@ public class Board {
             case "c2" -> setC2(value);
             case "c3" -> setC3(value);
         }
+        System.out.println(location + " is now set to: " + value);
         displayBoard();
     }
 
+    public String getValue(String value) {
+        String returnValue = "";
+        switch (value) {
+            case "a1" -> { returnValue = getA1(); }
+            case "a2" -> { returnValue = getA2(); }
+            case "a3" -> { returnValue = getA3(); }
+            case "b1" -> { returnValue = getB1(); }
+            case "b2" -> { returnValue = getB2(); }
+            case "b3" -> { returnValue = getB3(); }
+            case "c1" -> { returnValue = getC1(); }
+            case "c2" -> { returnValue = getC2(); }
+            case "c3" -> { returnValue = getC3(); }
+            case "A1" -> { returnValue = getA1(); }
+            case "A2" -> { returnValue = getA2(); }
+            case "A3" -> { returnValue = getA3(); }
+            case "B1" -> { returnValue = getB1(); }
+            case "B2" -> { returnValue = getB2(); }
+            case "B3" -> { returnValue = getB3(); }
+            case "C1" -> { returnValue = getC1(); }
+            case "C2" -> { returnValue = getC2(); }
+            case "C3" -> { returnValue = getC3(); }
+            default -> throw new IllegalStateException("Unexpected value: " + value);
+        }
+
+        return returnValue;
+    }
+    public Map createMap() {
+        HashMap<String, String> valueMap = new HashMap<String, String>();
+        valueMap.put("A1", getA1());
+        valueMap.put("A2", getA2());
+        valueMap.put("A3", getA3());
+        valueMap.put("B1", getB1());
+        valueMap.put("B2", getB2());
+        valueMap.put("B3", getB3());
+        valueMap.put("C1", getC1());
+        valueMap.put("C2", getC2());
+        valueMap.put("C3", getC3());
+
+        return valueMap;
+    }
+
+    public void updateMap(Map valueMap, String key, String value) {
+        valueMap.remove(key);
+        valueMap.put(key, value);
+    }
 }
