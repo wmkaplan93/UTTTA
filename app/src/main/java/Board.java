@@ -83,15 +83,15 @@ public class Board {
     }
     public void setBoard(String location, String value) {
         switch (location) {
-            case "a1" -> setA1(value);
-            case "a2" -> setA2(value);
-            case "a3" -> setA3(value);
-            case "b1" -> setB1(value);
-            case "b2" -> setB2(value);
-            case "b3" -> setB3(value);
-            case "c1" -> setC1(value);
-            case "c2" -> setC2(value);
-            case "c3" -> setC3(value);
+            case "a1", "A1" -> setA1(value);
+            case "a2", "A2" -> setA2(value);
+            case "a3", "A3" -> setA3(value);
+            case "b1", "B1" -> setB1(value);
+            case "b2", "B2" -> setB2(value);
+            case "b3", "B3" -> setB3(value);
+            case "c1", "C1" -> setC1(value);
+            case "c2", "C2" -> setC2(value);
+            case "c3", "C3" -> setC3(value);
         }
         System.out.println(location + " is now set to: " + value);
         displayBoard();
@@ -100,24 +100,15 @@ public class Board {
     public String getValue(String value) {
         String returnValue = "";
         switch (value) {
-            case "a1" -> { returnValue = getA1(); }
-            case "a2" -> { returnValue = getA2(); }
-            case "a3" -> { returnValue = getA3(); }
-            case "b1" -> { returnValue = getB1(); }
-            case "b2" -> { returnValue = getB2(); }
-            case "b3" -> { returnValue = getB3(); }
-            case "c1" -> { returnValue = getC1(); }
-            case "c2" -> { returnValue = getC2(); }
-            case "c3" -> { returnValue = getC3(); }
-            case "A1" -> { returnValue = getA1(); }
-            case "A2" -> { returnValue = getA2(); }
-            case "A3" -> { returnValue = getA3(); }
-            case "B1" -> { returnValue = getB1(); }
-            case "B2" -> { returnValue = getB2(); }
-            case "B3" -> { returnValue = getB3(); }
-            case "C1" -> { returnValue = getC1(); }
-            case "C2" -> { returnValue = getC2(); }
-            case "C3" -> { returnValue = getC3(); }
+            case "a1", "A1" -> { returnValue = getA1(); }
+            case "a2", "A2" -> { returnValue = getA2(); }
+            case "a3", "A3" -> { returnValue = getA3(); }
+            case "b1", "B1" -> { returnValue = getB1(); }
+            case "b2", "B2" -> { returnValue = getB2(); }
+            case "b3", "B3" -> { returnValue = getB3(); }
+            case "c1", "C1" -> { returnValue = getC1(); }
+            case "c2", "C2" -> { returnValue = getC2(); }
+            case "c3", "C3" -> { returnValue = getC3(); }
             default -> throw new IllegalStateException("Unexpected value: " + value);
         }
 

@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -75,7 +76,7 @@ public class Runner {
 
             while (matchFound) {
                 System.out.println("Choose a location: ");
-                String location = input.nextLine();
+                String location = input.nextLine().toUpperCase();
                 //checks for quit
                 if(location.equalsIgnoreCase("q")) {
                     quitDialog();
@@ -86,10 +87,12 @@ public class Runner {
                 matchFound = matcher.find();
 
                 if(matchFound) {
-                    board.setBoard(location, choice);
-                    board.updateMap(valueMap, location, choice);
+                    board.setBoard(location, choice.toUpperCase());
+                    board.updateMap(valueMap, location, choice.toUpperCase());
                     valueCheck(location);
                     mapCheck(valueMap);
+                    System.out.println("Map size is: " + valueMap.size());
+                    board.displayBoard();
                 } else {
                     System.out.println("That's not a valid choice.");
                     System.out.println("Ugh... Humans...");

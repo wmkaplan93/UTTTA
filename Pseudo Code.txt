@@ -1,0 +1,52 @@
+So where are we and where are we going
+
+Blocker:
+- Board.java should not(?) be a static variable, making it static causes problems
+- But not being static means I can't instantiate it as a part of the UserO and UserX files
+- - Was able to sort this out by instantiating the board and users in a different spot. I think it works....
+
+- Maybe I need to take app.java one step further away from the functional aspects
+- Maybe app.java should do pretty much nothing but send you to a main.java or something
+- - This has been done. App.java is very small now
+-----
+- I remember last nights blocker 
+- So there's a method to create the map, but how do we reference it without telling it to create it every time
+- Because that's an unecessary amount of processing power going with each map based step.
+- I feel like I can just use the createMap function to bring a map into the app.java?
+- Maybe updateMap needs to take in a map as a parameter. Maybe I already had that idea and didn't finish implementing it....
+- - Created a map variable early on in the runner.java to create a consistent map. Still spot checking it. 
+-----
+- Other Issue: 
+- - Regex is not working as expected
+- - it's not pattern matching quite right. 
+- - Resolved.
+
+Status: 
+- Starts, talks, inputs x into various squares if the user selects x. 
+- This is easily repeatable for o, but not very productive. 
+- Also stores all square information as a map and potentially has the ability to update said map
+- However, this has not been specifically tested yet.
+- It does recognize that the values of the square have changed, but whether or not the map reflects that is yet to be seen.
+
+ToDo:
+- Brainstorm win conditions
+- Test Mapping function
+- Move runner code into UserO and UserX  
+- The rest of the code
+
+Win Conditions:
+- What defines a win condition in tic-tac-toe?
+- - 3 in a row, right?
+- - So looking at hard coding, there are 8 win conditions for each, x and o. 2 diagonals, 3 horizontal, 3 vertical
+- - Assuming its coded correctly, O should never win if the user picks it. So it still can happen 
+- - If the user picks x and doesn't play well, the bot CAN win. 
+- this might end up being a pretty ugly if/else statement....
+if( getA1().equalsIgnoreCase(getA2()) && getA2().equalsIgnoreCase(getA3())) {
+    SysOut(A win has been found)
+} else if (getA1.equalsIgnoreCase(getB2()) && getB2.equalsIgnoreCase(getC3())) {
+    SysOut(A win has been found)
+} etc etc 
+
+- - Ok so maybe it's not THAT ugly 
+- - Just needs to run a method to check after every move has been played. 
+- - Can probably be linked to the updateMap or makeChoice methods. 
